@@ -1,0 +1,99 @@
+:root {
+    --highlight: rgb(65, 170, 200);
+}
+
+@font-face {
+    font-family: 'Siemens Sans Roman';
+    src: url("fonts/SiemensSans_Prof_Roman.woff") format("woff"),
+        url("fonts/SiemensSans_Prof_Roman.woff2") format("woff2"),
+        url("fonts/SiemensSans_Prof_Roman.ttf") format("truetype"),
+        url("fonts/SiemensSans_Prof_Roman.eot") format("embedded-opentype");
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Siemens Sans Roman';
+    src: url("fonts/SiemensSans_Prof_Bold.woff") format("woff"),
+        url("fonts/SiemensSans_Prof_Bold.woff2") format("woff2"),
+        url("fonts/SiemensSans_Prof_Bold.ttf") format("truetype"),
+        url("fonts/SiemensSans_Prof_Bold.eot") format("embedded-opentype");
+    font-weight: bold;
+    font-style: normal;
+}
+
+
+@media all and (min-width : 601px) and (max-width : 9000px) {
+    #quiz_container {
+        margin: 10vh auto 0;
+        /* Adjusted margin for vertical centering and spacing at the top */
+    }
+}
+
+@media all and (min-width : 0px) and (max-width : 600px) {
+    #quiz_container {
+        margin: 0;
+    }
+    button {
+        width: 100%;
+    }
+}
+
+*,
+text,
+body {
+    font-family: "Siemens Sans Roman", Helvetica, sans-serif;
+    accent-color: var(--highlight);
+    font-size: 1.1em;
+}
+
+body {
+    height: 100%;
+    margin: 0;
+    background: var(--highlight);
+    background: linear-gradient(90deg, var(--highlight) 0%, rgb(60, 165, 195) 100%);
+    text-align: center;
+    /* comes in handy when resizing the browser width, if the text is long/big enough */
+    text-decoration: none;
+}
+
+#quiz_container {
+    background-color: white;
+    width: 800px;
+    max-width: 90%;
+    /* Added max-width for better mobile responsiveness */
+    min-height: 300px;
+    outline: 4px solid var(--highlight);
+    outline-offset: -1em;
+    border-radius: 5px;
+    padding: 2em;
+    position: relative;
+}
+
+input[type="submit"],
+button {
+    height: 2.5em;
+    min-width: 5em;
+    padding: 10px;
+    min-width: 200px;
+    font-weight: bold;
+    margin-top: 2em;
+}
+
+input[type="submit"],
+button.primary {
+    background-color: var(--highlight);
+    color: white;
+    border: none;
+}
+
+div[id^="quiz_inlet"] {
+    display: none;
+}
+
+#quiz_inlet_start {
+    display: block;
+}
+
+#quiz_inlet_answers {
+    text-align: left;
+}

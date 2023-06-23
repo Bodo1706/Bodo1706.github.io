@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+	<title>MT ADC - Quiz</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="description" content="MT ADC Quiz">
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link rel="shortcut icon" href="favicon.ico" type="image/ico">
+	<link rel="stylesheet" href="quiz_style.css">
+</head>
+
+<body>
+	<div id="quiz_container">
+		<h2>MT ADC Quiz</h2>
+		<p><b>Versuch' dich doch einmal an unserem Quiz!</b></p>
+
+		<div id="quiz_inlet_start">
+			<button class="primary" onclick="start_quiz()">Beginnen</button>
+		</div>
+
+		<div id="quiz_inlet_answers">
+
+			<input type="radio" name="answer" value="ans_1" id="ans_1">
+			<label for="ans_1">Antwort 1</label>
+			<p></p>
+			<input type="radio" name="answer" value="ans_2" id="ans_2">
+			<label for="ans_2">Antwort 2</label>
+			<p></p>
+			<input type="radio" name="answer" value="ans_3" id="ans_3">
+			<label for="ans_3">Antwort 3</label>
+
+			<p></p>
+
+			<button class="primary" onclick="next()">Antworten</button>
+		</div>
+
+		<div id="quiz_inlet_result">
+			<p>Sie haben insgesamt <b><span id="quiz_inlet_result_score">0</span></b> von <b><span
+						id="quiz_inlet_result_count">?</span></b> Fragen richtig beantwortet.</p>
+			<button class="primary" onclick="start_quiz()">Nochmal!</button>
+		</div>
+
+	</div>
+	</div>
+
+	<script src="quiz_script.js">
+		
+	</script>
+</body>
+
+</html>
