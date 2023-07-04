@@ -38,6 +38,8 @@ const quiz = document.getElementById("quiz_container");
 const inlet_start = document.getElementById("quiz_inlet_start");
 const inlet_answers = document.getElementById("quiz_inlet_answers");
 
+const answer_go = document.getElementById("answer_go");
+
 const inlet_result = document.getElementById("quiz_inlet_result");
 const result_score = inlet_result.querySelector("#quiz_inlet_result_score");
 const result_count = inlet_result.querySelector("#quiz_inlet_result_count");
@@ -45,7 +47,10 @@ var Y = randomString(20);
 
 const q_title = quiz.querySelector("h2");
 const q_subtitle = quiz.querySelector("p>b");
-const ans = inlet_answers.querySelectorAll('label[for^="ans"]')
+const ans = inlet_answers.querySelectorAll('label[for^="ans"]');
+const ansi = inlet_answers.querySelectorAll('input[id^="ans"]');
+const answer_boxes = document.querySelectorAll('.ans_box');
+const answer_response = document.querySelector('#answer_response');
 
 const soq = {
     "Was ist die KuKo für Metrosysteme?": [
@@ -141,11 +146,15 @@ var progress = 0;
 var score = 0;
 var used_questions = [];
 
+/* Events */
 for (var i = 0; i < ans.length; i++) {
     ans[i].addEventListener("click", function () {
         console.log(i);
     });
 }
+answer_go.addEventListener("click", show_correct);
+
+/* */
 
 function show_result() {
     q_title.innerText = "Quiz Beendet!";
@@ -193,8 +202,41 @@ function show_question(number) {
     }
 }
 
+function show_correct() {
+    let chosen_answer = document.querySelector('input[name="answer"]:checked');
+    let correct_answer_box = document.querySelector('div.ans_box>label[data="' + Y + '"]').parentElement;
+
+    if (chosen_answer != null) {
+        for (var i = 0; i < answer_boxes.length; i++) {
+            if (answer_boxes[i] == correct_answer_box) {
+
+                answer_boxes[i].classList = "ans_box correct";
+            }
+            else {
+                answer_boxes[i].classList = "ans_box incorrect";
+            }
+            ansi[i].setAttribute("disabled", "disabled");
+        }
+        answer_go.removeEventListener("click", show_correct);
+        answer_go.addEventListener("click", next);
+        answer_go.innerText = "Weiter";
+    }
+    else {
+        alert("Bitte wählen Sie eine Antwort aus!");
+    }
+}
+
 function next() {
     let answer = document.querySelector('input[name="answer"]:checked');
+
+    
+    answer_go.removeEventListener("click", next);
+    answer_go.addEventListener("click", show_correct);
+    answer_go.innerText = "Antworten";
+    for (var i = 0; i < answer_boxes.length; i++) {
+        answer_boxes[i].classList = "ans_box";
+        ansi[i].removeAttribute("disabled");
+    }
 
     if (answer == null) {
         alert("Bitte wählen Sie eine Antwort aus!");

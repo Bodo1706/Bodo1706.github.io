@@ -11,6 +11,7 @@
 </head>
 
 <body>
+	<img id="logo" src="MT-ADC-QR.png">
 	<div id="quiz_container">
 		<h2>MT ADC Quiz</h2>
 		<p><b>Versuch' dich doch einmal an unserem Quiz!</b></p>
@@ -21,18 +22,24 @@
 
 		<div id="quiz_inlet_answers">
 
-			<input type="radio" name="answer" value="ans_1" id="ans_1">
-			<label for="ans_1">Antwort 1</label>
+			<div id="ans_1_box" class="ans_box">
+				<input type="radio" name="answer" value="ans_1" id="ans_1">
+				<label for="ans_1">Antwort 1</label>
+			</div>
 			<p></p>
-			<input type="radio" name="answer" value="ans_2" id="ans_2">
-			<label for="ans_2">Antwort 2</label>
+			<div id="ans_2_box" class="ans_box">
+				<input type="radio" name="answer" value="ans_2" id="ans_2">
+				<label for="ans_2">Antwort 2</label>
+			</div>
 			<p></p>
-			<input type="radio" name="answer" value="ans_3" id="ans_3">
-			<label for="ans_3">Antwort 3</label>
+			<div id="ans_3_box" class="ans_box">
+				<input type="radio" name="answer" value="ans_3" id="ans_3">
+				<label for="ans_3">Antwort 3</label>
+			</div>
 
-			<p></p>
+			<p id="answer_response"></p>
 
-			<button class="primary" onclick="next()">Antworten</button>
+			<button id="answer_go" class="primary">Antworten</button>
 		</div>
 
 		<div id="quiz_inlet_result">
@@ -45,7 +52,7 @@
 	</div>
 
 	<script src="quiz_script.js">
-		
+
 	</script>
 </body>
 

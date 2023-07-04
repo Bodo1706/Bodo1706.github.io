@@ -24,7 +24,7 @@
 
 @media all and (min-width : 601px) and (max-width : 9000px) {
     #quiz_container {
-        margin: 10vh auto 0;
+        margin: 0vh auto 0;
         /* Adjusted margin for vertical centering and spacing at the top */
     }
 }
@@ -35,6 +35,9 @@
     }
     button {
         width: 100%;
+    }
+    #logo {
+        display: none;
     }
 }
 
@@ -55,7 +58,10 @@ body {
     /* comes in handy when resizing the browser width, if the text is long/big enough */
     text-decoration: none;
 }
-
+#logo {
+    height: 20vh;
+    margin: 5vh;
+}
 #quiz_container {
     background-color: white;
     width: 800px;
@@ -96,4 +102,19 @@ div[id^="quiz_inlet"] {
 
 #quiz_inlet_answers {
     text-align: left;
+}
+
+div.ans_box {
+    border: none;
+    border-radius: 2pt;
+    box-shadow: 0 0 0 2pt white;
+    outline: none;
+    transition: .1s;
+}
+
+div.ans_box.correct{
+    box-shadow: 0 0 0 2pt var(--highlight);
+}
+div.ans_box.incorrect{
+    box-shadow: 0 0 0 2pt red;
 }
