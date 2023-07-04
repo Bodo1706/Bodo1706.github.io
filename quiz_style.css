@@ -46,7 +46,7 @@ text,
 body {
     font-family: "Siemens Sans Roman", Helvetica, sans-serif;
     accent-color: var(--highlight);
-    font-size: 1.1em;
+    font-size: 1.05em;
 }
 
 body {
@@ -117,4 +117,9 @@ div.ans_box.correct{
 }
 div.ans_box.incorrect{
     box-shadow: 0 0 0 2pt red;
+}
+
+#answer_response {
+    text-align: center;
+    font-weight: bold;
 }

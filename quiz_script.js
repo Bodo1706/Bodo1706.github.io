@@ -60,7 +60,7 @@ const soq = {
     ],
     "Wer oder was ist MoMa ?": [
         "Beide Antworten sind richtig",
-        "DasMuseum of Modern Art(MoMA) beherbergt eine der weltweit bedeutendsten und einflussreichsten Sammlungen moderner und zeitgenössischer Kunst.",
+        "Das Museum of Modern Art(MoMA) beherbergt eine der weltweit bedeutendsten und einflussreichsten Sammlungen moderner und zeitgenössischer Kunst.",
         "Das Prozessautomatisierungstool für die Projektabwicklung von Metrosystemen"
     ],
     "Was ist eine Kuppelfahrstraße?": [
@@ -146,6 +146,8 @@ var progress = 0;
 var score = 0;
 var used_questions = [];
 
+var test = null;
+
 /* Events */
 for (var i = 0; i < ans.length; i++) {
     ans[i].addEventListener("click", function () {
@@ -205,6 +207,7 @@ function show_question(number) {
 function show_correct() {
     let chosen_answer = document.querySelector('input[name="answer"]:checked');
     let correct_answer_box = document.querySelector('div.ans_box>label[data="' + Y + '"]').parentElement;
+    let correct_answer_selected = correct_answer_box.querySelector("input").checked;
 
     if (chosen_answer != null) {
         for (var i = 0; i < answer_boxes.length; i++) {
@@ -217,6 +220,14 @@ function show_correct() {
             }
             ansi[i].setAttribute("disabled", "disabled");
         }
+
+        if (correct_answer_selected) {
+            answer_response.innerText = "Richtig geraten!";
+        }
+        else {
+            answer_response.innerText = "Leider falsch geraten :(";
+        }
+
         answer_go.removeEventListener("click", show_correct);
         answer_go.addEventListener("click", next);
         answer_go.innerText = "Weiter";
@@ -233,6 +244,8 @@ function next() {
     answer_go.removeEventListener("click", next);
     answer_go.addEventListener("click", show_correct);
     answer_go.innerText = "Antworten";
+    answer_response.innerText = "";
+
     for (var i = 0; i < answer_boxes.length; i++) {
         answer_boxes[i].classList = "ans_box";
         ansi[i].removeAttribute("disabled");
