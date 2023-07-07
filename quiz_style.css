@@ -21,22 +21,41 @@
     font-style: normal;
 }
 
+img {
 
-@media all and (min-width : 601px) and (max-width : 9000px) {
+}
+
+@media all and (min-width : 701px) and (max-width : 9000px) {
     #quiz_container {
         margin: 0vh auto 0;
         /* Adjusted margin for vertical centering and spacing at the top */
+        width: 800px;
+        max-width: 90%;
+        min-height: 300px;
+    }
+    .logo {
+        height: 15vh;
+        margin: 3vh;
+    }
+    .logo.mobile {
+        display: none;
     }
 }
 
-@media all and (min-width : 0px) and (max-width : 600px) {
+@media all and (min-width : 0px) and (max-width : 700px) {
     #quiz_container {
         margin: 0;
+        max-width: 100%;
+        min-height: 100%;
     }
     button {
         width: 100%;
     }
-    #logo {
+    .logo {
+        display: initial;
+        height: 10vh;
+    }
+    .logo.desktop {
         display: none;
     }
 }
@@ -58,16 +77,9 @@ body {
     /* comes in handy when resizing the browser width, if the text is long/big enough */
     text-decoration: none;
 }
-#logo {
-    height: 20vh;
-    margin: 5vh;
-}
+
 #quiz_container {
     background-color: white;
-    width: 800px;
-    max-width: 90%;
-    /* Added max-width for better mobile responsiveness */
-    min-height: 300px;
     outline: 4px solid var(--highlight);
     outline-offset: -1em;
     border-radius: 5px;
